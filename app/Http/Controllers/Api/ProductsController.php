@@ -7,10 +7,11 @@ use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
+use App\Traits\ProductTrait;
 
 class ProductsController extends Controller
 {
-    use ApiResponseTrait;
+    use ProductTrait;
 
 
     // index all products
@@ -48,14 +49,12 @@ class ProductsController extends Controller
     //update the product 
     public function update(UpdateRequest $request, $id)
     {
-
         $product = Product::find($id);
         if (!$product) {
             return $this->notFoundResponse(); // 'Not Found' with 404 status code 
         }
 
         $product->update($request->all());
-
         if ($product) {
             return $this->apiResponse(new ProductResource($product));
         }

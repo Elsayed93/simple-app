@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+/*
+|-------------------------------------------------|
+| Products Web Routes                             |
+|-------------------------------------------------|
+*/
+
+// resource Route for Products
+Route::resource('/products', ProductsController::class);

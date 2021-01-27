@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,10 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 /*
-|--------------------------------------------------------------------------
-| Products API Routes
-|--------------------------------------------------------------------------
-|
+|-------------------------------------------------|
+| Products API Routes                             |
+|-------------------------------------------------|
 */
 
 // resource Route for Products

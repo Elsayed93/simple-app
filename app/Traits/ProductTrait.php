@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Traits;
 
-trait ApiResponseTrait
+trait ProductTrait
 {
 
-    public $paginateNumber = 10;
+    public $paginateNumber = 12;
 
     /***
      * 
