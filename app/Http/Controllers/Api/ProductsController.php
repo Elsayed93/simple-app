@@ -7,7 +7,6 @@ use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
-use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
