@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Products API Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+// resource Route for Products
+Route::resource('/products', ProductsController::class)->except(['create', 'edit']);  // don't need create and edit method in APIs
