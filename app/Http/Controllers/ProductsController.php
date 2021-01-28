@@ -53,7 +53,6 @@ class ProductsController extends Controller
     // show product with id
     public function show($id)
     {
-        dd('show');
         // find product
         $product = Product::findOrFail($id);
 
