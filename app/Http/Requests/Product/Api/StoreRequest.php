@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace App\Http\Requests\Product\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use App\Traits\ProductTrait;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\ValidationException;
 
 class StoreRequest extends FormRequest
 {
+    use ProductTrait;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -29,5 +34,20 @@ class StoreRequest extends FormRequest
             'details' => 'required|min:5',
             'image' => 'required|image',
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        $errors = (new ValidationException($validator))->errors();
+
+        $errors1 = [];
+
+        foreach ($errors as $key => $value) {
+            $errors1[] =   $value;
+        }
+
+        throw new HttpResponseException(
+            $this->apiResponse(null, 400, $errors1)
+        );
     }
 }

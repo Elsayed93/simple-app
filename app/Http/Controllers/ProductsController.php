@@ -45,7 +45,7 @@ class ProductsController extends Controller
             $data['image']  = $file_name;
         }
 
-        $product = Product::create($data);
+        Product::create($data);
 
         return redirect()->back()->with(['updateMessage' => 'Product Updated Successfully']);
     }
@@ -53,6 +53,7 @@ class ProductsController extends Controller
     // show product with id
     public function show($id)
     {
+        dd('show');
         // find product
         $product = Product::findOrFail($id);
 
@@ -62,21 +63,27 @@ class ProductsController extends Controller
     // show form to edit a product
     public function edit($id)
     {
+        // dd($id);
         // find product
         $product = Product::find($id);
-
+        // dd($product);
         if (!$product) {
-            return 'not found error';
+            return redirect()->back();
         }
 
+        // return view('products.edit', ['product' => $product]);
+        // return view('products.edit')->with('product', $product);
         return view('products.edit', compact('product'));
     }
 
     // update a product
     public function update(UpdateRequest $updateRequest, $id)
     {
+        // dd($id);
+        dd($updateRequest);
         // $data = $updateRequest->except([''])
-        // $product = Product::find($id);
+        $product = Product::find($id);
+        dd($product);
         // if ($updateRequest->hasFile('image')) {
 
         //     $path = public_path('images/products/' . $product->image);
@@ -96,15 +103,13 @@ class ProductsController extends Controller
     {
         // find product
         $product = Product::find($id);
-        dd($product);
+        // dd($product);
         if (!$product) {
             return 'not found error'; // >>>> handle error here
         }
 
         $product->delete();
-        if (!$product->delete()) {
-            return 'error';  // >>>> handle error here
-        }
-        return 'product was deleted successfully'; // >>>> handle success message
+
+        return redirect()->back()->with('deleteMessage', 'product was deleted successfully');
     }
 }

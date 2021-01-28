@@ -3,7 +3,7 @@
 @php
 $title = $product->name;
 @endphp
-@section('title', "{$title}")
+@section('title', $title)
 
 @section('content')
   <div class="container mt-5">
@@ -12,14 +12,16 @@ $title = $product->name;
         {{ ucfirst($title) }}
       </h1>
     </div>
-    <strong>id: </strong> {{ $product->id }} <br>
-    <strong>name: </strong> {{ $product->name }} <br>
-    <strong>price: </strong>{{ $product->price }} <br>
-    <strong>details: </strong> {{ $product->details }} <br>
-
-    <br>
-    <a href="{{ route('products.edit', $product->id) }}">Edit</a>
-    <a href="{{ route('products.destroy', $product->id) }}">Delete</a>
+    <div class="row mt-5">
+      <div class="col-sm-12 col-md-6">
+        <img src="{{ asset('images/products/' . $product->image) }}" alt="" width="100%">
+      </div>
+      <div class="col-sm-12 col-md-6 ml-3">
+        <h4>
+          {{ $product->details }}
+        </h4>
+      </div>
+    </div>
 
 
 
