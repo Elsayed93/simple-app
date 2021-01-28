@@ -18,6 +18,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = ProductResource::collection(Product::paginate($this->paginateNumber));
+        // dd($products);
         return $this->apiResponse($products);
     }
 

@@ -4,6 +4,7 @@
 $productName = 'product';
 $title = 'create products';
 @endphp
+
 @section('title', $title)
 
 @section('content')
@@ -76,7 +77,7 @@ $title = 'create products';
 
           <br>
         </div>
-        <button type="submit" class="btn btn-primary">Add {{ ucfirst($productName) }}</button>
+        <button type="submit" class="btn btn-primary">Add {{ ucfirst($product) }}</button>
       </form>
 
     </div>

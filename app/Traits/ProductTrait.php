@@ -22,7 +22,7 @@ trait ProductTrait
             'status' => in_array($status, $this->successStatusCode()) ? true : false,
             'message' => $message
         ];
-
+        // dd($data);
         return response($array, $status);
     }
 

@@ -35,4 +35,4 @@ require __DIR__ . '/auth.php';
 */
 
 // resource Route for Products
-Route::resource('/products', ProductsController::class);
+Route::resource('/products', ProductsController::class)->middleware('auth');

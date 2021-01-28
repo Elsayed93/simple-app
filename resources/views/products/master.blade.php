@@ -50,7 +50,7 @@ $productsName = 'Products'
 
   {{-- footer --}}
   <div class="container-fluid ">
-    <footer id="footer" class="py-4 px-5 mt-md-5 border-top fixed-bottom" style="background-color: #e3f2fd;">
+    <footer id="footer" class="py-4 px-5 mt-md-5 border-top " style="background-color: #e3f2fd;">
       <div class="row">
         <div class="col-8 col-md">
           <small class="d-block text">© YisWeb 2021</small>
