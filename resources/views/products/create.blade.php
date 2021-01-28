@@ -1,7 +1,7 @@
 @extends('products.master')
 
 @php
-$product = 'product';
+$productName = 'product';
 $title = 'create products';
 @endphp
 @section('title', $title)
@@ -76,7 +76,7 @@ $title = 'create products';
 
           <br>
         </div>
-        <button type="submit" class="btn btn-primary">Add {{ ucfirst($product) }}</button>
+        <button type="submit" class="btn btn-primary">Add {{ ucfirst($productName) }}</button>
       </form>
 
     </div>

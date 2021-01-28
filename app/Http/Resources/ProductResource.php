@@ -14,12 +14,13 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
+        dd($request);
         // return parent::toArray($request);
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'price' => $this->price,
-            'details' => $this->details,
+            // 'product_id' => $this->id,
+            'product_name' => $this->name,
+            'product_price' => $this->price,
+            'product_details' => $this->details,
         ];
     }
 }

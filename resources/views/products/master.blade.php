@@ -1,5 +1,5 @@
 @php
-$products = 'Products'
+$productsName = 'Products'
 @endphp
 
 <!DOCTYPE html>
@@ -31,11 +31,11 @@ $products = 'Products'
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active ml-md-auto" aria-current="page" href="{{ route('products.index') }}">All
-              {{ $products }}</a>
+              {{ $productsName }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active ml-md-auto" aria-current="page" href="{{ route('products.create') }}">Create
-              {{ $products }}</a>
+              {{ $productsName }}</a>
           </li>
       </div>
     </div>
@@ -50,7 +50,7 @@ $products = 'Products'
 
   {{-- footer --}}
   <div class="container-fluid ">
-    <footer class="py-4 px-5 mt-md-5 border-top" style="background-color: #e3f2fd;">
+    <footer id="footer" class="py-4 px-5 mt-md-5 border-top fixed-bottom" style="background-color: #e3f2fd;">
       <div class="row">
         <div class="col-8 col-md">
           <small class="d-block text">© YisWeb 2021</small>

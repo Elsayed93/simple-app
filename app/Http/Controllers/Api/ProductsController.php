@@ -50,16 +50,18 @@ class ProductsController extends Controller
     public function update(UpdateRequest $request, $id)
     {
         $product = Product::find($id);
+        // dd($product);
         if (!$product) {
             return $this->notFoundResponse(); // 'Not Found' with 404 status code 
         }
-
-        $product->update($request->all());
-        if ($product) {
-            return $this->apiResponse(new ProductResource($product));
+        $product = $product->update($request->all());
+        if (!$product) {
+            // return $this->apiResponse(new ProductResource($product));
+            return $this->unknownError(); //unknown error with 400 status code 
+            // dd($product);
         }
 
-        return $this->unknownError(); //unknown error with 400 status code 
+        return $this->apiResponse($product);
     }
 
     //delete product 

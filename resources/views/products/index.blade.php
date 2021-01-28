@@ -13,6 +13,7 @@ $title = 'all products';
       </h1>
     </div>
 
+    {{-- message after delete a product --}}
     @if (session()->has('deleteMessage'))
       <div class="alert alert-success" role="alert">{{ session()->get('deleteMessage') }}</div>
     @endif
