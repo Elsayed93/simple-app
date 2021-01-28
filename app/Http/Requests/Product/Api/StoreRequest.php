@@ -32,7 +32,7 @@ class StoreRequest extends FormRequest
             'name' => 'required|min:1|max:255|unique:products,name',
             'price' => 'required',
             'details' => 'required|min:5',
-            'image' => 'required|image',
+            'image' => 'required|string',
         ];
     }
 
