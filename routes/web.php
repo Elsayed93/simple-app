@@ -14,12 +14,9 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/test', function () {
-    return 'test';
+Route::get('/', function () {
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {

@@ -26,6 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required|min:1|max:255',
             'details' => 'required|min:10',
+            'image' => 'required',
         ];
     }
 }

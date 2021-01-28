@@ -15,10 +15,11 @@ $title = 'all products';
 
     {{-- message after delete a product --}}
     @if (session()->has('deleteMessage'))
-      <div class="alert alert-success" role="alert">{{ session()->get('deleteMessage') }}</div>
+      <div class="alert alert-success col-md-6" role="alert">{{ session()->get('deleteMessage') }}</div>
     @endif
 
     <div class="row">
+
       @foreach ($products as $product)
         <div class="col-sm-12 mt-3 col-md-6 mt-3 col-lg-4 mt-3">
 
@@ -38,11 +39,11 @@ $title = 'all products';
                   <form action="{{ route('products.destroy', $product->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    <button onclick="return confirm('Delete Product ??')" type="submit"
+                      class="btn btn-sm btn-outline-secondary">Delete</button>
                   </form>
 
                 </div>
-                <small class="text-muted">9 mins</small>
               </div>
             </div>
           </div>
@@ -51,8 +52,4 @@ $title = 'all products';
 
     </div>
   </div>
-
-
-
-  {{-- {{ $products->links() }} --}}
 @endsection

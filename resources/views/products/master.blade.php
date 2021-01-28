@@ -22,7 +22,8 @@ $productsName = 'Products'
   <nav class="navbar navbar-expand-lg navbar-light sticky-top justify-content-between"
     style="background-color: #e3f2fd;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img id='logoImage' src="{{ asset('images/products/yisweb.jpeg') }}" alt=""></a>
+      <a class="navbar-brand" href="{{ route('products.index') }}"><img id='logoImage'
+          src="{{ asset('images/products/yisweb.jpeg') }}" alt=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -37,7 +38,17 @@ $productsName = 'Products'
             <a class="nav-link active ml-md-auto" aria-current="page" href="{{ route('products.create') }}">Create
               {{ $productsName }}</a>
           </li>
+
+
       </div>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <form action="{{ url('/logout') }}" method="post">
+            @csrf
+            <button class="nav-link active ml-md-auto btn" aria-current="page">Logout</button>
+          </form>
+        </li>
+      </ul>
     </div>
   </nav>
   {{-- end of navbar --}}
@@ -67,6 +78,8 @@ $productsName = 'Products'
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
   </script>
+
+  @stack('js')
 </body>
 
 </html>
